@@ -16,7 +16,7 @@
                 message: "Hello, this is a test email!",
             };
 
-            emailjs.send('service_527muze', 'template_ppw8eh7', templateParams)
+            emailjs.send("service_527muze","template_ppw8eh7");
                 .then((response) => {
                     console.log('Email sent successfully!', response.status, response.text);
                     alert('Email sent successfully!');
