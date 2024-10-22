@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender</title>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+        })();
+
+        function sendEmail() {
+            const templateParams = {
+                to_name: "Recipient Name", // Change this to the recipient's name
+                message: "Hello, this is a test email!",
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then((response) => {
+                    console.log('Email sent successfully!', response.status, response.text);
+                    alert('Email sent successfully!');
+                }, (error) => {
+                    console.error('Failed to send email:', error);
+                    alert('Failed to send email. Please try again later.');
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Email Sender</h1>
+    <button onclick="sendEmail()">Send Email</button>
+</body>
+</html>
